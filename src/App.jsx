@@ -8,14 +8,28 @@ import NewBoardForm from './components/NewBoardForm';
 function App() {
   const [boardList, setBoardList] = useState(data);
 
+  const [showForm, setShowForm] = useState(false);
+
   const addBoard = (newBoard) => {
     setBoardList(prev => [...prev, newBoard]);
+  };
+
+  const handleHideForm = () => {
+    setShowForm((prevShowForm) => !prevShowForm);
   };
 
   return (
     <>
       <h1>Board Form</h1>
-      <NewBoardForm onBoardAdd={addBoard}></NewBoardForm>
+      {!showForm && (
+        <button onClick={handleHideForm}>Show Form</button>
+      )}
+      {showForm && (
+      <NewBoardForm
+        onBoardAdd={addBoard}
+        onHide={handleHideForm}
+      />
+    )}
       <h1>Boards</h1>
       <BoardList
         boards={boardList}
