@@ -1,15 +1,18 @@
 import { useState } from "react";
 
+const defaultFormState = { title: '', owner: '' };
+
 const NewBoardForm = ({ onBoardAdd }) => {
-    const [newBoardData, setNewBoardData] = useState({
-        title: '',
-        owner: ''
-    });
+    const [newBoardData, setNewBoardData] = useState(defaultFormState);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        onBoardAdd(newBoardData);
-        setNewBoardData({ title: '', owner: ''})
+      e.preventDefault();
+      if (!newBoardData.title.trim()) return;
+      onBoardAdd({
+        title: newBoardData.title.trim(),
+        owner: newBoardData.owner.trim(),
+      });
+      setNewBoardData(defaultFormState);
     };
 
     return (
