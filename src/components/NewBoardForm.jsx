@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const defaultFormState = { title: '', owner: '' };
 
-const NewBoardForm = ({ onBoardAdd }) => {
+const NewBoardForm = ({ onBoardAdd, onHide }) => {
     const [newBoardData, setNewBoardData] = useState(defaultFormState);
 
     const handleSubmit = (e) => {
@@ -31,7 +31,8 @@ const NewBoardForm = ({ onBoardAdd }) => {
                 required
                 onChange={(e) => setNewBoardData({...newBoardData, owner: e.target.value})}
             />
-            <button type="submit">Add Board</button>
+        <button type="submit">Add Board</button>
+        <button onClick={onHide}>Hide</button>
         </form>
     );
 };
