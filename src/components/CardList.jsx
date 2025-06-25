@@ -13,7 +13,12 @@ const CardList = props => {
       />
     );
   });
-  return <ul className="">{getCardList}</ul>;
+  return (
+    <>
+    {/* <h1>Cards</h1> */}
+    <ul className="">{getCardList}</ul>
+    </>
+  );
 };
 
 

@@ -9,7 +9,6 @@ import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, l
 const App = () => {
   const [boardList, setBoardList] = useState([]);
   const [cardList, setCardList] = useState([]);
-  // const [selectedBoard, setSelectedBoard] = useState(null);
 
   const [showForm, setShowForm] = useState(false);
 
@@ -79,7 +78,7 @@ const App = () => {
           )}
         </section>
         <section className='card-area'>
-          <h1>Cards</h1>
+          {/* <h1>Cards</h1> */}
           <CardList
             cards={cardList}
             onLikeCard = {likeCard}
