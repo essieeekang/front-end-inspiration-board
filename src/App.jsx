@@ -7,10 +7,13 @@ import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import CardList from './components/CardList';
 
+const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
 
-function App() {
+const App = () => {
   const [boardList, setBoardList] = useState(boardData);
   const [cardList, setCardList] = useState(cardData);
+
+  const [showForm, setShowForm] = useState(false);
 
   const addBoard = (newBoard) => {
     setBoardList(prev => [...prev, newBoard]);
@@ -29,11 +32,23 @@ function App() {
       }
     }));
   };
+  
+  const handleHideForm = () => {
+    setShowForm((prevShowForm) => !prevShowForm);
+  };
 
   return (
     <>
       <h1>Board Form</h1>
-      <NewBoardForm onBoardAdd={addBoard}></NewBoardForm>
+      {!showForm && (
+        <button onClick={handleHideForm}>Show Form</button>
+      )}
+      {showForm && (
+      <NewBoardForm
+        onBoardAdd={addBoard}
+        onHide={handleHideForm}
+      />
+    )}
       <h1>Boards</h1>
       <BoardList
         boards={boardList}

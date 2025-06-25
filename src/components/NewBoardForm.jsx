@@ -1,15 +1,18 @@
 import { useState } from "react";
 
-const NewBoardForm = ({ onBoardAdd }) => {
-    const [newBoardData, setNewBoardData] = useState({
-        title: '',
-        owner: ''
-    });
+const defaultFormState = { title: '', owner: '' };
+
+const NewBoardForm = ({ onBoardAdd, onHide }) => {
+    const [newBoardData, setNewBoardData] = useState(defaultFormState);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        onBoardAdd(newBoardData);
-        setNewBoardData({ title: '', owner: ''})
+      e.preventDefault();
+      if (!newBoardData.title.trim()) return;
+      onBoardAdd({
+        title: newBoardData.title.trim(),
+        owner: newBoardData.owner.trim(),
+      });
+      setNewBoardData(defaultFormState);
     };
 
     return (
@@ -28,7 +31,8 @@ const NewBoardForm = ({ onBoardAdd }) => {
                 required
                 onChange={(e) => setNewBoardData({...newBoardData, owner: e.target.value})}
             />
-            <button type="submit">Add Board</button>
+        <button type="submit">Add Board</button>
+        <button onClick={onHide}>Hide</button>
         </form>
     );
 };
