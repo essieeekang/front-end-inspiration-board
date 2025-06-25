@@ -12,6 +12,7 @@ const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
 const App = () => {
   const [boardList, setBoardList] = useState(boardData);
   const [cardList, setCardList] = useState(cardData);
+  // const [selectedBoard, setSelectedBoard] = useState(null);
 
   const [showForm, setShowForm] = useState(false);
 
@@ -26,41 +27,50 @@ const App = () => {
   const likeCard = (id) => {
     setCardList(cardList => cardList.map(card => {
       if (card.id === id) {
-        return {...card, likesCount: card.likesCount + 1}
+        return {...card, likesCount: card.likesCount + 1};
       } else {
         return card;
       }
     }));
   };
-  
+
   const handleHideForm = () => {
     setShowForm((prevShowForm) => !prevShowForm);
   };
 
   return (
-    <>
-      <h1>Board Form</h1>
-      {!showForm && (
-        <button onClick={handleHideForm}>Show Form</button>
-      )}
-      {showForm && (
-      <NewBoardForm
-        onBoardAdd={addBoard}
-        onHide={handleHideForm}
-      />
-    )}
-      <h1>Boards</h1>
-      <BoardList
-        boards={boardList}
-      />
-      <h1>Cards</h1>
-      <CardList
-        cards={cardList}
-        onLikeCard = {likeCard}
-      />
-      <h1>Card Form</h1>
-      <NewCardForm onCardAdd={addCard}></NewCardForm>
-    </>
+    <div className='app-container'>
+      <header>
+        <h1>Inspiration Board</h1>
+      </header>
+
+      <main className='main-content'>
+        <section className='sidebar'>
+          <h3>Boards</h3>
+          <BoardList
+            boards={boardList}
+          />
+          {!showForm && (
+            <button onClick={handleHideForm}>Create Board</button>
+          )}
+          {showForm && (
+            <NewBoardForm
+              onBoardAdd={addBoard}
+              onHide={handleHideForm}
+            />
+          )}
+        </section>
+        <section className='card-area'>
+          <h1>Cards</h1>
+          <CardList
+            cards={cardList}
+            onLikeCard = {likeCard}
+          />
+          <h1>Card Form</h1>
+          <NewCardForm onCardAdd={addCard}></NewCardForm>
+        </section>
+      </main>
+    </div>
   );
 };
 
