@@ -1,6 +1,12 @@
 .board-list {
-    list-style: none;
-    padding: 1rem;
-    margin: 0;
-    width: 220px;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  width: 220px;
 }
+
+.board-list-item:hover {
+  cursor: pointer;
+  color: rgba(229, 223, 223, 0.67);
+}
+
