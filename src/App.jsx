@@ -1,52 +1,10 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import './App.css';
 import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import CardList from './components/CardList';
-
-const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
-
-const getAllBoardsApi = () => {
-  return axios.get(`${VITE_APP_BACKEND_URL}/boards`)
-    .then( response => {
-      return response.data;
-    })
-    .catch( error => {
-      console.log(error);
-    });
-};
-
-const createNewBoardApi = (newBoard) => {
-  return axios.post(`${VITE_APP_BACKEND_URL}/boards`, newBoard)
-    .then(response => {
-      return response.data;
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-
-const getAllCardsApi = (boardId) => {
-  return axios.get(`${VITE_APP_BACKEND_URL}/boards/${boardId}/cards`)
-    .then( response => {
-      return response.data;
-    })
-    .catch( error => {
-      console.log(error);
-    });
-};
-
-const createNewCardApi = (newCard) => {
-  return axios.post(`${VITE_APP_BACKEND_URL}/cards`, newCard)
-    .then(response => {
-      return response.data;
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
+import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi } from './api'; 
 
 const App = () => {
   const [boardList, setBoardList] = useState([]);
