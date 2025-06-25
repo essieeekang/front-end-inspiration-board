@@ -33,7 +33,7 @@ function App() {
             <BoardList
             boards={boardList}
             />  
-            <h4>Board Form</h4>
+            <h3>Board Form</h3>
             {!showForm && (
               <button onClick={handleHideForm}>Show Form</button>
             )}
