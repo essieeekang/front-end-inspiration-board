@@ -4,6 +4,7 @@ import data from '../data.json';
 import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 
+const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
 
 function App() {
   const [boardList, setBoardList] = useState(data);
