@@ -1,5 +1,6 @@
 .board-list {
     list-style: none;
     padding: 1rem;
+    margin: 0;
     width: 220px;
 }
