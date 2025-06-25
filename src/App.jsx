@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 import boardData from '../data.json';
 import cardData from '../cardData.json';
@@ -7,7 +8,27 @@ import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import CardList from './components/CardList';
 
-const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
+const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
+
+const getAllBoardsApi = () => {
+  return axios.get(`${VITE_APP_BACKEND_URL}/boards`)
+    .then( response => {
+      return response.data;
+    })
+    .catch( error => {
+      console.log(error);
+    });
+};
+
+const createNewBoardApi = (newBoard) => {
+  return axios.post(`${VITE_APP_BACKEND_URL}/boards`, newBoard)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
 const App = () => {
   const [boardList, setBoardList] = useState(boardData);
@@ -16,9 +37,25 @@ const App = () => {
 
   const [showForm, setShowForm] = useState(false);
 
-  const addBoard = (newBoard) => {
-    setBoardList(prev => [...prev, newBoard]);
+  const getAllBoards = () => {
+    return getAllBoardsApi()
+      .then(boards => setBoardList(boards));
   };
+
+  const addBoard = (newTask) => {
+    return createNewBoardApi(newTask)
+      .then(newBoard => {
+        setBoardList(prev => [...prev, newBoard]);
+      });
+  };
+
+  useEffect(() => {
+    getAllBoards();
+  }, []);
+
+  // const addBoard = (newBoard) => {
+  //   setBoardList(prev => [...prev, newBoard]);
+  // };
 
   const addCard = (newCard) => {
     setCardList(prev => [...prev, newCard]);
