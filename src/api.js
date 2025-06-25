@@ -41,3 +41,20 @@ export const createNewCardApi = (newCard) => {
       console.log(error);
     });
 };
+
+export const likeCardApi = (id) => {
+  return axios.patch(`${VITE_APP_BACKEND_URL}/cards/${id}/like`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export const removeCardApi = (id) => {
+  return axios.delete(`${VITE_APP_BACKEND_URL}/cards/${id}`)
+    .catch(error => {
+      console.log(error);
+    });
+};

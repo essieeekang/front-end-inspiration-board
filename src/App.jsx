@@ -4,7 +4,7 @@ import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import CardList from './components/CardList';
-import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi } from './api'; 
+import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, likeCardApi, removeCardApi } from './api'; 
 
 const App = () => {
   const [boardList, setBoardList] = useState([]);
@@ -66,6 +66,7 @@ const App = () => {
           <h3>Boards</h3>
           <BoardList
             boards={boardList}
+            onDisplayCards={getAllCardsForBoard}
           />
           {!showForm && (
             <button onClick={handleHideForm}>Create Board</button>

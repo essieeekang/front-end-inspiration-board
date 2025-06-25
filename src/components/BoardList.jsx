@@ -5,13 +5,13 @@ import './BoardList.css';
 const BoardList = props => {
   const getBoardList = props.boards.map((board) => {
     return (
-      <li key={board.id} className="board-list-item">
-        <Board
-          id={board.id}
-          title={board.title}
-          owner={board.owner}
-        />
-      </li>
+      <Board
+        key={board.id}
+        id={board.id}
+        title={board.title}
+        owner={board.owner}
+        onDisplayCards={props.onDisplayCards}
+      />
     );
   });
   return <ul className="board-list">{getBoardList}</ul>;

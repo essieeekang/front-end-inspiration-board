@@ -1,8 +1,8 @@
 
 
-const Board = ({ title, owner }) => {
+const Board = ({ id, title, owner, onDisplayCards }) => {
   return (
-    <li className="">{`${title} - ${owner}`}</li>
+    <li className="board-list-item" onClick={() => onDisplayCards(id)}>{`${title} - ${owner}`}</li>
   );
 };
 
