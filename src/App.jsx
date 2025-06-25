@@ -8,6 +8,7 @@ const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL
 
 function App() {
   const [boardList, setBoardList] = useState(data);
+  // const [selectedBoard, setSelectedBoard] = useState(null);
 
   const [showForm, setShowForm] = useState(false);
 
@@ -21,20 +22,38 @@ function App() {
 
   return (
     <>
-      <h1>Board Form</h1>
-      {!showForm && (
-        <button onClick={handleHideForm}>Show Form</button>
-      )}
-      {showForm && (
-      <NewBoardForm
-        onBoardAdd={addBoard}
-        onHide={handleHideForm}
-      />
-    )}
-      <h1>Boards</h1>
-      <BoardList
-        boards={boardList}
-      />
+      <div className='app-container'>
+        <header>
+          <h1>Inspiration Board</h1>
+        </header>
+
+        <main className='main-content'>
+          <section className='sidebar'>
+            <h3>Boards</h3>
+            <BoardList
+            boards={boardList}
+            />  
+            <h4>Board Form</h4>
+            {!showForm && (
+              <button onClick={handleHideForm}>Show Form</button>
+            )}
+            {showForm && (
+            <NewBoardForm
+              onBoardAdd={addBoard}
+              onHide={handleHideForm}
+            />
+            )}
+          </section>
+          
+          <section className='card-area'>
+            {/* <CardList/BoardDetails goes here /> */}
+            {/* {selectedBoard ? (<CardList board={selectedBoard} />) : (<p>Select a board to see its cards</p>)} */}
+          </section>
+        </main>
+
+      </div>
+      
+      
     </>
   );
 };

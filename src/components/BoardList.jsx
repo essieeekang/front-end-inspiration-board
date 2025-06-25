@@ -1,4 +1,5 @@
 import Board from "./Board";
+import './BoardList.css'; 
 
 
 const BoardList = props => {
@@ -12,7 +13,7 @@ const BoardList = props => {
             />
         );
     });
-    return <ul className="">{getBoardList}</ul>;
+    return <ul className="board-list">{getBoardList}</ul>;
 };
     
 
