@@ -92,16 +92,17 @@ const App = () => {
             />
           )}
         </section>
-        <section className='card-area'>
-          <h1>Cards for {selectedBoard.title}</h1>
-          <CardList
-            cards={cardList}
-            onLikeCard = {likeCard}
-            onDeleteCard = {removeCard}
-          />
-          <h1>Card Form</h1>
-          <NewCardForm onCardAdd={addCard} boardId={selectedBoard.id}></NewCardForm>
-        </section>
+        {selectedBoard.id && (
+          <section className='card-area'>
+            <h1>Cards for {selectedBoard.title}</h1>
+            <CardList
+              cards={cardList}
+              onLikeCard={likeCard}
+              onDeleteCard={removeCard}
+            />
+            <NewCardForm onCardAdd={addCard} boardId={selectedBoard.id}></NewCardForm>
+          </section>
+        )}
       </main>
     </div>
   );

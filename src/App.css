@@ -17,11 +17,22 @@ header {
 .main-content {
   display: flex;
   flex: 1;
+  align-items: flex-start;
 }
 
 .card-area {
   flex: 1;
   padding: 1rem;
+  border: 1px solid black;
+  /* display: flex; */
+}
+
+.card-area > h1 {
+  text-align: center;
+  margin-top: 0;
+  background-color: rgba(251, 255, 148, 0.314);
+  border-radius: 10px;
+  color: antiquewhite;
 }
 
 .sidebar {
