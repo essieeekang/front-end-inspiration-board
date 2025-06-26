@@ -114,7 +114,8 @@ const App = () => {
                 {showFilter && (
                   <div className='dropdown-content'>
                     <button onClick={() => handleSort('likes')}>Most Liked</button>
-                    <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>  
+                    <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>
+                    <button onClick={() => handleSort(null)}>ID</button>
                   </div>
             )}
               </div>
