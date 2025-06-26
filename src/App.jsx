@@ -9,7 +9,7 @@ import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, l
 const App = () => {
   const [boardList, setBoardList] = useState([]);
   const [cardList, setCardList] = useState([]);
-  // const [selectedBoard, setSelectedBoard] = useState(null);
+  const [selectedBoard, setSelectedBoard] = useState({id: null, title: '', owner: ''});
 
   const [showForm, setShowForm] = useState(false);
 
@@ -29,26 +29,40 @@ const App = () => {
     getAllBoards();
   }, []);
 
-  const getAllCardsForBoard = (boardId) => {
-    return getAllCardsApi(boardId)
+  const selectBoard = (board) => {
+    setSelectedBoard(board);
+
+    return getAllCardsApi(board.id)
       .then(cards => setCardList(cards));
   };
 
   const addCard = (newCard) => {
     return createNewCardApi(newCard)
       .then(newCard => {
-        setBoardList(prev => [...prev, newCard]);
+        setCardList(prev => [...prev, newCard]);
       });
   };
 
   const likeCard = (id) => {
-    setCardList(cardList => cardList.map(card => {
-      if (card.id === id) {
-        return {...card, likesCount: card.likesCount + 1};
-      } else {
-        return card;
-      }
-    }));
+    return likeCardApi(id)
+      .then(likedResult => {
+        setCardList(cardList => cardList.map(card => {
+          if (card.id === likedResult.id) {
+            return likedResult;
+          } else {
+            return card;
+          }
+        }));
+      });
+  };
+
+  const removeCard = (id) => {
+    return removeCardApi(id)
+      .then(() => {
+        setCardList(cardList => cardList.filter(card => {
+          return card.id !== id;
+        }));
+      });
   };
 
   const handleHideForm = () => {
@@ -66,7 +80,7 @@ const App = () => {
           <h3>Boards</h3>
           <BoardList
             boards={boardList}
-            onDisplayCards={getAllCardsForBoard}
+            onDisplayCards={selectBoard}
           />
           {!showForm && (
             <button onClick={handleHideForm}>Create Board</button>
@@ -79,13 +93,14 @@ const App = () => {
           )}
         </section>
         <section className='card-area'>
-          <h1>Cards</h1>
+          <h1>Cards for {selectedBoard.title}</h1>
           <CardList
             cards={cardList}
             onLikeCard = {likeCard}
+            onDeleteCard = {removeCard}
           />
           <h1>Card Form</h1>
-          <NewCardForm onCardAdd={addCard}></NewCardForm>
+          <NewCardForm onCardAdd={addCard} boardId={selectedBoard.id}></NewCardForm>
         </section>
       </main>
     </div>

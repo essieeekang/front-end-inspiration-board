@@ -33,6 +33,7 @@ export const getAllCardsApi = (boardId) => {
 };
 
 export const createNewCardApi = (newCard) => {
+  newCard = convertCamelToSnake(newCard);
   return axios.post(`${VITE_APP_BACKEND_URL}/cards`, newCard)
     .then(response => {
       return response.data;
@@ -57,4 +58,10 @@ export const removeCardApi = (id) => {
     .catch(error => {
       console.log(error);
     });
+};
+
+const convertCamelToSnake = (card) => {
+  const {message, boardId} = card;
+  const apiCard = {message, board_id: boardId};
+  return apiCard;
 };

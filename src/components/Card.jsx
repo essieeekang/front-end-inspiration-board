@@ -1,11 +1,12 @@
 
 
-const Card = ({id, message, likesCount, onLikeCard}) => {
+const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
   return (
     <div>
       <li className="">{`${message}`}</li>
       <button onClick={() => onLikeCard(id)}>❤️</button>
-      <p>{likesCount}</p>
+      <p>{likes}</p>
+      <button onClick={() => onDeleteCard(id)}>🗑️</button>
     </div>
   );
 };
