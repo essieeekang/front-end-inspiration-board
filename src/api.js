@@ -22,8 +22,14 @@ export const createNewBoardApi = (newBoard) => {
     });
 };
 
-export const getAllCardsApi = (boardId) => {
-  return axios.get(`${VITE_APP_BACKEND_URL}/boards/${boardId}/cards`)
+export const getAllCardsApi = (boardId, sortParam = null) => {
+
+  let url = `${VITE_APP_BACKEND_URL}/boards/${boardId}/cards`;
+  if (sortParam) {
+    url += `?sort=${sortParam}`;
+  }
+
+  return axios.get(url)
     .then( response => {
       return response.data;
     })
