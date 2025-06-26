@@ -22,9 +22,9 @@ export const createNewBoardApi = (newBoard) => {
     });
 };
 
-export const getAllCardsApi = (boardId, sortParam = null) => {
-
+export const getAllCardsApi = (boardId, sortParam=null) => {
   let url = `${VITE_APP_BACKEND_URL}/boards/${boardId}/cards`;
+
   if (sortParam) {
     url += `?sort=${sortParam}`;
   }

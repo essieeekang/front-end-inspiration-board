@@ -13,6 +13,7 @@ const App = () => {
 
   const [showForm, setShowForm] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
+  const [currentSort, setCurrentSort] = useState(null);
 
   const getAllBoards = () => {
     return getAllBoardsApi()
@@ -33,7 +34,7 @@ const App = () => {
   const selectBoard = (board) => {
     setSelectedBoard(board);
 
-    return getAllCardsApi(board.id)
+    return getAllCardsApi(board.id, currentSort)
       .then(cards => setCardList(cards));
   };
 
@@ -68,6 +69,17 @@ const App = () => {
 
   const handleHideForm = () => {
     setShowForm((prevShowForm) => !prevShowForm);
+  };
+
+  const handleSort = sortType => {
+    setCurrentSort(sortType);
+
+    if (selectedBoard.id) {
+      getAllCardsApi(selectedBoard.id, sortType)
+        .then(cards => setCardList(cards));
+    }
+
+    setShowFilter(false);
   };
 
   return (
