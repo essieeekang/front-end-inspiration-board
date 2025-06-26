@@ -1,4 +1,5 @@
 import Card from './Card';
+import './CardList.css';
 
 
 const CardList = props => {
@@ -14,7 +15,7 @@ const CardList = props => {
       />
     );
   });
-  return <ul className="">{getCardList}</ul>;
+  return <div className='card-list'>{getCardList}</div>;
 };
 
 

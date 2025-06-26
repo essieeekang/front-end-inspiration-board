@@ -23,8 +23,6 @@ header {
 .card-area {
   flex: 1;
   padding: 1rem;
-  border: 1px solid black;
-  /* display: flex; */
 }
 
 .card-area > h1 {
