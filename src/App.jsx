@@ -12,6 +12,7 @@ const App = () => {
   const [selectedBoard, setSelectedBoard] = useState({id: null, title: '', owner: ''});
 
   const [showForm, setShowForm] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   const getAllBoards = () => {
     return getAllBoardsApi()
@@ -94,7 +95,18 @@ const App = () => {
         </section>
         {selectedBoard.id && (
           <section className='card-area'>
-            <h1>Cards for {selectedBoard.title}</h1>
+            <h1>
+            Cards for {selectedBoard.title}
+              <div className='dropdown'>
+                <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
+                {showFilter && (
+                  <div className='dropdown-content'>
+                    <button onClick={() => handleSort('likes')}>Most Liked</button>
+                    <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>  
+                  </div>
+            )}
+              </div>
+            </h1>
             <CardList
               cards={cardList}
               onLikeCard={likeCard}

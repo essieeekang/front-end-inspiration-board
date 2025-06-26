@@ -16,7 +16,7 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
     <form onSubmit={handleSubmit}>
       <input
         type='text'
-        placeholder='type your message here'
+        placeholder='type your message here (max 40 characters)'
         value={newCardData.message}
         maxLength='40'
         required
