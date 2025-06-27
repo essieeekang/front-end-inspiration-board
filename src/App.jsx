@@ -82,6 +82,18 @@ const App = () => {
     setShowFilter(false);
   };
 
+  const groupBoardNamesByOwner = boards => {
+    const grouped = {};
+    boards.forEach((board) => {
+      const owner = board.owner;
+      if (!grouped[owner]) {
+        grouped[owner] = [];
+      }
+      grouped[owner].push(board);
+    });
+    return grouped;
+  };
+
   return (
     <div className='app-container'>
       <header>
@@ -94,6 +106,7 @@ const App = () => {
           <BoardList
             boards={boardList}
             onDisplayCards={selectBoard}
+            groupedBoards={groupBoardNamesByOwner(boardList)}
           />
           {!showForm && (
             <button onClick={handleHideForm}>Create Board</button>
@@ -108,7 +121,7 @@ const App = () => {
         {selectedBoard.id && (
           <section className='card-area'>
             <h1>
-            {selectedBoard.title} <br />by {selectedBoard.owner}
+            {selectedBoard.title}
               <div className='dropdown'>
                 <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
                 {showFilter && (

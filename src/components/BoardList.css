@@ -5,6 +5,26 @@
   width: 220px;
 }
 
+.owner-group {
+  margin-bottom: 0.5rem; /* Reduce space between owner groups */
+}
+
+.owner-group h4 {
+  margin: 0.25rem 0; /* Reduce margin around owner names */
+  font-size: 1rem;
+  /* color: rgba(216, 220, 221, 0.884); */ 
+}
+
+.owner-group ul {
+  list-style: none; /* Remove bullet points */
+  padding-left: 0; /* Remove default indentation */
+  margin: 0; /* Remove default margin */
+}
+
+.owner-group li {
+  margin-bottom: 0.25rem; /* Small space between board names */
+}
+
 .board-list-item:hover {
   cursor: pointer;
   color: rgba(229, 223, 223, 0.67);
