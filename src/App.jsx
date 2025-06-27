@@ -4,7 +4,7 @@ import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import CardList from './components/CardList';
-import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, likeCardApi, removeCardApi } from './api'; 
+import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, likeCardApi, removeCardApi } from './api';
 
 const App = () => {
   const [boardList, setBoardList] = useState([]);

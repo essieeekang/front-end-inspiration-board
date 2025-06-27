@@ -4,6 +4,7 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
   const [newCardData, setNewCardData] = useState({
     message: '',
     boardId: null,
+    image: null,
   });
 
   const handleSubmit = (e) => {
@@ -21,6 +22,12 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
         maxLength='40'
         required
         onChange={(e) => setNewCardData({boardId: boardId, message: e.target.value})}
+      />
+      <input
+        type='file'
+        accept='image/*'
+        value={newCardData.image}
+        onChange={(e) => setNewCardData({...newCardData, image: e.target.value})}
       />
       <button type="submit">Add Card</button>
     </form>
