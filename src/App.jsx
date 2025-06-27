@@ -108,7 +108,7 @@ const App = () => {
         {selectedBoard.id && (
           <section className='card-area'>
             <h1>
-            Cards for {selectedBoard.title}
+            {selectedBoard.title} <br />by {selectedBoard.owner}
               <div className='dropdown'>
                 <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
                 {showFilter && (
