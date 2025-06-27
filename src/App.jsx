@@ -117,7 +117,7 @@ const App = () => {
                     <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>
                     <button onClick={() => handleSort(null)}>ID</button>
                   </div>
-            )}
+                )}
               </div>
             </h1>
             <CardList
