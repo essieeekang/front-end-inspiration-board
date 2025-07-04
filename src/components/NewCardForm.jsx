@@ -1,11 +1,11 @@
 import { useState } from 'react';
+// import { useForm } from "react-hook-form";
 
 const NewCardForm = ({ onCardAdd, boardId }) => {
-  const [newCardData, setNewCardData] = useState({
-    message: '',
-    boardId: null,
-    image: null,
-  });
+  const newCardData = new FormData();
+  formData.append('boardId', boardId);
+
+  const [newCardData, setNewCardData] = useState(newCardData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +27,6 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
         type='file'
         accept='image/*'
         value={newCardData.image}
-        onChange={(e) => setNewCardData({...newCardData, image: e.target.value})}
       />
       <button type="submit">Add Card</button>
     </form>
