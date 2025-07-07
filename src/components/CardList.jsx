@@ -18,5 +18,4 @@ const CardList = props => {
   return <div className='card-list'>{getCardList}</div>;
 };
 
-
 export default CardList;

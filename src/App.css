@@ -46,7 +46,6 @@ header {
 .card-area > h1 {
   text-align: center;
   margin-top: 0;
-  background-color: rgba(251, 255, 148, 0.314);
   border-radius: 10px;
   color: antiquewhite;
   display: flex;
