@@ -24,13 +24,6 @@
   width: 25%;
 }
 
-.button-area > button {
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .card-item > button {
   padding: 0px;
   justify-content: center;

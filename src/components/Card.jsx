@@ -4,11 +4,9 @@ const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
   return (
     <div className='card-item'>
       <li className="card-message">{`${message}`}</li>
-      <div className='button-area'>
-        <p>{likes}</p>
-        <button onClick={() => onLikeCard(id)}>❤️</button>
-        <button onClick={() => onDeleteCard(id)}>🗑️</button>
-      </div>
+      <button id="like" onClick={() => onLikeCard(id)}>❤️</button>
+      <p id="likes-message">{likes} likes</p>
+      <button id="delete" onClick={() => onDeleteCard(id)}>🗑️</button>
     </div>
   );
 };
