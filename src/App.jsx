@@ -119,7 +119,7 @@ const App = () => {
           )}
         </section>
         {selectedBoard.id && (
-          <section className='card-area'>
+          <section className='card-area corkboard-container'>
             <h1>
             {selectedBoard.title}
               <div className='dropdown'>

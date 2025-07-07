@@ -20,6 +20,11 @@ header {
   align-items: flex-start;
 }
 
+.corkboard-container {
+  background-image: url('path-to-your-corkboard-image.jpg');  
+
+}
+
 .card-area {
   flex: 1;
   padding: 1rem;
