@@ -119,28 +119,30 @@ const App = () => {
           )}
         </section>
         {selectedBoard.id && (
-          <section className='card-area corkboard-container'>
-            <div className='title-container'>
-              <h1>
-            {selectedBoard.title}
-              <div className='dropdown'>
-                <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
-                {showFilter && (
-                  <div className='dropdown-content'>
-                    <button onClick={() => handleSort('likes')}>Most Liked</button>
-                    <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>
-                    <button onClick={() => handleSort(null)}>ID</button>
+          <section className='card-area'>
+            <div className='corkboard-container'>
+              <div className='title-container'>
+                <h1>
+                  {selectedBoard.title}
+                  <div className='dropdown'>
+                    <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
+                    {showFilter && (
+                      <div className='dropdown-content'>
+                        <button onClick={() => handleSort('likes')}>Most Liked</button>
+                        <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>
+                        <button onClick={() => handleSort(null)}>ID</button>
+                      </div>
+                    )}
                   </div>
-            )}
+                </h1>
               </div>
-              </h1>
+              
+              <CardList
+                cards={cardList}
+                onLikeCard={likeCard}
+                onDeleteCard={removeCard}
+              />
             </div>
-            
-            <CardList
-              cards={cardList}
-              onLikeCard={likeCard}
-              onDeleteCard={removeCard}
-            />
             <NewCardForm onCardAdd={addCard} boardId={selectedBoard.id}></NewCardForm>
           </section>
         )}
