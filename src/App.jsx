@@ -120,7 +120,8 @@ const App = () => {
         </section>
         {selectedBoard.id && (
           <section className='card-area corkboard-container'>
-            <h1>
+            <div className='title-container'>
+              <h1>
             {selectedBoard.title}
               <div className='dropdown'>
                 <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
@@ -132,7 +133,9 @@ const App = () => {
                   </div>
             )}
               </div>
-            </h1>
+              </h1>
+            </div>
+            
             <CardList
               cards={cardList}
               onLikeCard={likeCard}
