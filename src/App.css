@@ -21,13 +21,26 @@ header {
 }
 
 .corkboard-container {
-  background-image: url('path-to-your-corkboard-image.jpg');  
-
+  background-image: url('./assets/corkboard.png');  
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  min-height: 600px;
+  height: auto;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .card-area {
   flex: 1;
-  padding: 1rem;
+  /* padding: 1rem; */
+}
+
+.corkboard-container .card-list {
+  position: relative;
+  z-index: 2;
 }
 
 .card-area > h1 {
