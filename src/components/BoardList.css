@@ -3,6 +3,8 @@
   padding: 1rem;
   margin: 0;
   width: 220px;
+  height: 50vh;
+  overflow-y: auto; 
 }
 
 .owner-group {
