@@ -1,5 +1,5 @@
 import './Card.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 const Card = ({id, message, likes, color, onLikeCard, onDeleteCard}) => {
@@ -15,12 +15,12 @@ const Card = ({id, message, likes, color, onLikeCard, onDeleteCard}) => {
   );
 };
 
-// Card.propTypes = {
-//   id: PropTypes.string.isRequired,
-//   message: PropTypes.string.isRequired,
-//   likes: PropTypes.number.isRequired,
-//   onLikeCard: PropTypes.func.isRequired,
-//   onDeleteCard: PropTypes.func.isRequired,
-// };
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  message: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  onLikeCard: PropTypes.func.isRequired,
+  onDeleteCard: PropTypes.func.isRequired,
+};
 
 export default Card;

@@ -1,6 +1,6 @@
 import Card from './Card';
 import './CardList.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const CardList = props => {
   const getCardList = props.cards.map((card) => {
@@ -19,16 +19,16 @@ const CardList = props => {
   return <div className='card-list'>{getCardList}</div>;
 };
 
-// CardList.propTypes = {
-//   cards: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       message: PropTypes.string.isRequired,
-//       likes: PropTypes.number.isRequired,
-//     })
-//   ).isRequired,
-//   onLikeCard: PropTypes.func.isRequired,
-//   onDeleteCard: PropTypes.func.isRequired,
-// };
+CardList.propTypes = {
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      message: PropTypes.string.isRequired,
+      likes: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  onLikeCard: PropTypes.func.isRequired,
+  onDeleteCard: PropTypes.func.isRequired,
+};
 
 export default CardList;

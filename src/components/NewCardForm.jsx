@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const NewCardForm = ({ onCardAdd, boardId }) => {
   const [newCardData, setNewCardData] = useState({
@@ -28,9 +28,9 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
   );
 };
 
-// NewCardForm.propTypes = {
-//   onCardAdd: PropTypes.func.isRequired,
-//   boardId: PropTypes.string.isRequired,
-// };
+NewCardForm.propTypes = {
+  onCardAdd: PropTypes.func.isRequired,
+  boardId: PropTypes.number.isRequired,
+};
 
 export default NewCardForm;

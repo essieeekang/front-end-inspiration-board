@@ -1,6 +1,6 @@
 import Board from './Board';
 import './BoardList.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const BoardList = props => {
   const owners = Object.keys(props.groupedBoards).sort();
@@ -26,10 +26,10 @@ const BoardList = props => {
   );
 };
 
-// BoardList.propTypes = {
-//   groupedBoards: PropTypes.object.isRequired,
-//   onDisplayCards: PropTypes.func.isRequired,
-// };
+BoardList.propTypes = {
+  groupedBoards: PropTypes.object.isRequired,
+  onDisplayCards: PropTypes.func.isRequired,
+};
 
 export default BoardList;
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './NewBoardForm.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const defaultFormState = { title: '', owner: '' };
 
@@ -39,9 +39,9 @@ const NewBoardForm = ({ onBoardAdd, onHide }) => {
   );
 };
 
-// NewBoardForm.propTypes = {
-//   onBoardAdd: PropTypes.func.isRequired,
-//   onHide: PropTypes.func.isRequired,
-// };
+NewBoardForm.propTypes = {
+  onBoardAdd: PropTypes.func.isRequired,
+  onHide: PropTypes.func.isRequired,
+};
 
 export default NewBoardForm;

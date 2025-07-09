@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Board = ({ id, title, owner, onDisplayCards }) => {
   return (
@@ -6,11 +6,11 @@ const Board = ({ id, title, owner, onDisplayCards }) => {
   );
 };
 
-// Board.propTypes = {
-//   id: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   owner: PropTypes.string.isRequired,
-//   onDisplayCards: PropTypes.func.isRequired,
-// };
+Board.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
+  onDisplayCards: PropTypes.func.isRequired,
+};
 
 export default Board;
