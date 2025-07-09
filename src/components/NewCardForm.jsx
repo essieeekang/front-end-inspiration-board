@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const NewCardForm = ({ onCardAdd, boardId }) => {
   const [newCardData, setNewCardData] = useState({
@@ -25,6 +26,11 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
       <button type="submit">Add Card</button>
     </form>
   );
+};
+
+NewCardForm.propTypes = {
+  onCardAdd: PropTypes.func.isRequired,
+  boardId: PropTypes.string.isRequired,
 };
 
 export default NewCardForm;

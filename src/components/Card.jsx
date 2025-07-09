@@ -1,4 +1,5 @@
 import './Card.css';
+import PropTypes from 'prop-types';
 
 
 const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
@@ -33,6 +34,14 @@ const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  id: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  onLikeCard: PropTypes.func.isRequired,
+  onDeleteCard: PropTypes.func.isRequired,
 };
 
 export default Card;
