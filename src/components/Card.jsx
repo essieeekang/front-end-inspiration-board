@@ -6,7 +6,7 @@ const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
   // Function to generate a random color
   const getRandomColor = () => {
     const colors = [
-      ' #db96b9', // Rose Quartz
+      '#db96b9', // Rose Quartz
       'e4a8b9', // Pink Champagne
       '#c8a8d5', // Light Coral
       '#d2ccf2', // Peach Puff
@@ -22,11 +22,9 @@ const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
       style ={{ backgroundColor: getRandomColor() }}>
 
       <li className="card-message">{`${message}`}</li>
-      <div className='button-area'>
-        <p>{likes}</p>
-        <button onClick={() => onLikeCard(id)}>❤️</button>
-        <button onClick={() => onDeleteCard(id)}>🗑️</button>
-      </div>
+      <button id="like" onClick={() => onLikeCard(id)}>❤️</button>
+      <p id="likes-message">{likes} likes</p>
+      <button id="delete" onClick={() => onDeleteCard(id)}>🗑️</button>
     </div>
   );
 };

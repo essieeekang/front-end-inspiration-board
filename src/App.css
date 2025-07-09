@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
 header {
   text-align: center;
   color: rgba(255, 255, 255, 0.87);
@@ -20,39 +22,56 @@ header {
   align-items: flex-start;
 }
 
-.card-area {
-  flex: 1;
-  padding: 1rem;
+.corkboard-container {
+  background-image: url('./assets/corkboard.png');  
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  min-height: 600px;
+  height: auto;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-.card-area > h1 {
-  text-align: center;
-  margin-top: 0;
-  background-color: rgba(251, 255, 148, 0.314);
-  border-radius: 10px;
-  color: antiquewhite;
+.card-area {
+  flex: 1;
+  /* padding: 1rem; */
+}
+
+.corkboard-container .card-list {
+  position: relative;
+  z-index: 2;
+}
+
+.title-container {
+  background-image: url('assets/tape.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
+  font-family: "Shadows Into Light", cursive;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .filter-button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: none;
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  background-color: rgb(129, 137, 163);
 }
 
 .dropdown-content {
@@ -77,8 +96,7 @@ header {
 
 .dropdown-content button:hover {
   color: black;
-  background-color: antiquewhite;
-}
+  background-color: rgb(215, 216, 250);}
 
 .sidebar {
   width: 240px;
