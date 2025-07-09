@@ -136,7 +136,6 @@ const App = () => {
                   </div>
                 </h1>
               </div>
-              
               <CardList
                 cards={cardList}
                 onLikeCard={likeCard}

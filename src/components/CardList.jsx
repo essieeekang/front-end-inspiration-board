@@ -10,6 +10,7 @@ const CardList = props => {
         id={card.id}
         message={card.message}
         likes={card.likes}
+        color={card.color}
         onLikeCard = {props.onLikeCard}
         onDeleteCard = {props.onDeleteCard}
       />

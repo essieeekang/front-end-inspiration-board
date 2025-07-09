@@ -2,24 +2,10 @@ import './Card.css';
 // import PropTypes from 'prop-types';
 
 
-const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
-  // Function to generate a random color
-  const getRandomColor = () => {
-    const colors = [
-      '#db96b9', // Rose Quartz
-      '#e4a8b9', // Pink Champagne
-      '#c8a8d5', // Light Coral
-      '#d2ccf2', // Peach Puff
-      '#f2d2cc', // Light Salmon
-    ];
-
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
-  };
-
+const Card = ({id, message, likes, color, onLikeCard, onDeleteCard}) => {
   return (
     <div className='card-item'
-      style ={{ backgroundColor: getRandomColor() }}>
+      style ={{ backgroundColor: color }}>
 
       <li className="card-message">{`${message}`}</li>
       <button id="like" onClick={() => onLikeCard(id)}>❤️</button>
