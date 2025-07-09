@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './NewBoardForm.css';
+import PropTypes from 'prop-types';
 
 const defaultFormState = { title: '', owner: '' };
 
@@ -36,6 +37,11 @@ const NewBoardForm = ({ onBoardAdd, onHide }) => {
       <button className='hide-button' onClick={onHide}>Hide</button>
     </form>
   );
+};
+
+NewBoardForm.propTypes = {
+  onBoardAdd: PropTypes.func.isRequired,
+  onHide: PropTypes.func.isRequired,
 };
 
 export default NewBoardForm;

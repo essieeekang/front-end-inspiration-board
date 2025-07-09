@@ -1,11 +1,15 @@
 import { useState } from 'react';
 // import { useForm } from "react-hook-form";
+import PropTypes from 'prop-types';
 
 const NewCardForm = ({ onCardAdd, boardId }) => {
-  const newCardData = new FormData();
-  formData.append('boardId', boardId);
+  // const newCardData = new FormData();
+  // formData.append('boardId', boardId);
 
-  const [newCardData, setNewCardData] = useState(newCardData);
+  const [newCardData, setNewCardData] = useState({
+    message: '',
+    boardId: null,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +35,11 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
       <button type="submit">Add Card</button>
     </form>
   );
+};
+
+NewCardForm.propTypes = {
+  onCardAdd: PropTypes.func.isRequired,
+  boardId: PropTypes.number.isRequired,
 };
 
 export default NewCardForm;

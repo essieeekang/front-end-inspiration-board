@@ -82,6 +82,18 @@ const App = () => {
     setShowFilter(false);
   };
 
+  const groupBoardNamesByOwner = boards => {
+    const grouped = {};
+    boards.forEach((board) => {
+      const owner = board.owner;
+      if (!grouped[owner]) {
+        grouped[owner] = [];
+      }
+      grouped[owner].push(board);
+    });
+    return grouped;
+  };
+
   return (
     <div className='app-container'>
       <header>
@@ -94,6 +106,7 @@ const App = () => {
           <BoardList
             boards={boardList}
             onDisplayCards={selectBoard}
+            groupedBoards={groupBoardNamesByOwner(boardList)}
           />
           {!showForm && (
             <button onClick={handleHideForm}>Create Board</button>
@@ -107,24 +120,28 @@ const App = () => {
         </section>
         {selectedBoard.id && (
           <section className='card-area'>
-            <h1>
-            Cards for {selectedBoard.title}
-              <div className='dropdown'>
-                <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
-                {showFilter && (
-                  <div className='dropdown-content'>
-                    <button onClick={() => handleSort('likes')}>Most Liked</button>
-                    <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>
-                    <button onClick={() => handleSort(null)}>ID</button>
+            <div className='corkboard-container'>
+              <div className='title-container'>
+                <h1>
+                  {selectedBoard.title}
+                  <div className='dropdown'>
+                    <button className='filter-button' onClick={() => setShowFilter(!showFilter)}>↑↓</button>
+                    {showFilter && (
+                      <div className='dropdown-content'>
+                        <button onClick={() => handleSort('likes')}>Most Liked</button>
+                        <button onClick={() => handleSort('alphabetic')}>Alphabetically</button>
+                        <button onClick={() => handleSort(null)}>ID</button>
+                      </div>
+                    )}
                   </div>
-                )}
+                </h1>
               </div>
-            </h1>
-            <CardList
-              cards={cardList}
-              onLikeCard={likeCard}
-              onDeleteCard={removeCard}
-            />
+              <CardList
+                cards={cardList}
+                onLikeCard={likeCard}
+                onDeleteCard={removeCard}
+              />
+            </div>
             <NewCardForm onCardAdd={addCard} boardId={selectedBoard.id}></NewCardForm>
           </section>
         )}
