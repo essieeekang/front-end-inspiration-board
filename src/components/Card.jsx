@@ -7,7 +7,7 @@ const Card = ({id, message, likes, onLikeCard, onDeleteCard}) => {
   const getRandomColor = () => {
     const colors = [
       '#db96b9', // Rose Quartz
-      'e4a8b9', // Pink Champagne
+      '#e4a8b9', // Pink Champagne
       '#c8a8d5', // Light Coral
       '#d2ccf2', // Peach Puff
       '#f2d2cc', // Light Salmon
