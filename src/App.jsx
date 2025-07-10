@@ -4,6 +4,8 @@ import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import CardList from './components/CardList';
+import sparkles from './assets/sparkles.webp';
+import sparklesFlipped from './assets/sparkles_flipped.png';
 import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, likeCardApi, removeCardApi } from './api';
 
 const App = () => {
@@ -97,7 +99,7 @@ const App = () => {
   return (
     <div className='app-container'>
       <header>
-        <h1><img src="/src/assets/sparkles.webp"/>INSPIRATION BOARD<img src="/src/assets/sparkles_flipped.png"/></h1>
+        <h1><img src={sparkles}/>INSPIRATION BOARD<img src={sparklesFlipped}/></h1>
       </header>
 
       <main className='main-content'>
