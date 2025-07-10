@@ -1,20 +1,13 @@
 form {
-  text-align: center;
+  /* border: 2px dotted black; */
+  margin: auto;
+  width: 300px;
+  padding: 1rem;
+  background-color: rgba(250, 235, 215, 0.568);
+  gap: .5rem;
+  border-radius: 20px;
 }
 
-input {
-  border-radius: 5px;
-  width: 70%;
-  border: none;
-  background: rgba(255, 255, 255, 0.669);
-  font-family: inherit;
-  color: black;
-}
-
-.add-button {
-  font-size: .8rem;
-}
-
-.hide-button {
-  font-size: 10px;
+.card-form input {
+  width: 300px;
 }

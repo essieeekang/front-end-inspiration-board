@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 
 .card-message {
   list-style-type: none;
@@ -14,6 +15,11 @@
   grid-template-rows: auto auto 6vh;
   width: 200px;
   aspect-ratio: 1 / 1;
+  border-image: url('../assets/pushpin-cropped.png');
+  border-image-slice: 39 0 0 0;
+  border-image-width: 20px 20px 20px 20px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
 }
 
 .button-area {
@@ -59,4 +65,11 @@
   display: block;
   margin: auto;
   width: 50%;
+  padding-top: 5px;
+}
+
+.card-item li, p {
+  font-family: "Caveat";
+  font-size: 24px;
+  font-weight: bold;
 }

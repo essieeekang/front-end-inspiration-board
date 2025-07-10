@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { useForm } from "react-hook-form";
+import './NewCardForm.css';
 import PropTypes from 'prop-types';
 
 const NewCardForm = ({ onCardAdd, boardId }) => {
@@ -34,7 +34,8 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='card-form' onSubmit={handleSubmit}>
+      <h3>New Card Form</h3>
       <input
         type='text'
         placeholder='type your message here (max 40 characters)'
@@ -46,6 +47,7 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
           message: e.target.value
         }))}
       />
+      <br></br>
       <input
         type='file'
         accept='image/*'
