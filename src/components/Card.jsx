@@ -1,5 +1,7 @@
 import './Card.css';
 import PropTypes from 'prop-types';
+import trashcan from '../assets/trashcan.png';
+import heart from '../assets/heart-icon.png';
 
 
 const Card = ({id, message, likes, color, image, onLikeCard, onDeleteCard}) => {
@@ -10,9 +12,9 @@ const Card = ({id, message, likes, color, image, onLikeCard, onDeleteCard}) => {
         <img src={image}/>
       </div>
       <li className="card-message">{`${message}`}</li>
-      <button id="like" onClick={() => onLikeCard(id)}>❤️</button>
+      <button id="like" onClick={() => onLikeCard(id)}><img src={heart}/></button>
       <p id="likes-message">{likes} likes</p>
-      <button id="delete" onClick={() => onDeleteCard(id)}>🗑️</button>
+      <button id="delete" onClick={() => onDeleteCard(id)}><img src={trashcan}/></button>
     </div>
   );
 };

@@ -11,7 +11,7 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.629);
   padding: 1rem;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 50px);
   grid-template-rows: auto auto 6vh;
   width: 200px;
   aspect-ratio: 1 / 1;
@@ -40,13 +40,43 @@
   grid-column: 1 / 2;
 }
 
+#like img {
+  max-width: 100%;
+  height: auto;
+  padding-top: 8px;
+}
+
+#like:active {
+  outline: none;
+}
+
+#like:focus {
+  outline: none;
+}
+
 #delete {
   grid-row: 3 / 4;
   grid-column: 4 / 5;
+  max-width: 100%;
+  height: auto;
+}
+
+#delete img {
+  max-width: 100%;
+  height: auto;
+}
+
+#delete:active {
+  outline: none;
+}
+
+#delete:focus {
+  outline: none;
 }
 
 #likes-message {
   text-align: center;
+  place-self: center;
   grid-row: 3 / 4;
   grid-column: 2 / 4;
 }
@@ -72,4 +102,8 @@
   font-family: "Caveat";
   font-size: 24px;
   font-weight: bold;
+}
+
+.card-item button {
+  background-color: transparent;
 }

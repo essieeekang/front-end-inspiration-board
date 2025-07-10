@@ -6,7 +6,7 @@ import NewCardForm from './components/NewCardForm';
 import CardList from './components/CardList';
 import sparkles from './assets/sparkles.webp';
 import sparklesFlipped from './assets/sparkles_flipped.png';
-import { getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, likeCardApi, removeCardApi } from './api';
+import {getAllBoardsApi, createNewBoardApi, getAllCardsApi, createNewCardApi, likeCardApi, removeCardApi} from './api';
 
 const App = () => {
   const [boardList, setBoardList] = useState([]);
@@ -145,7 +145,9 @@ const App = () => {
                 onDeleteCard={removeCard}
               />
             </div>
-            <NewCardForm onCardAdd={addCard} boardId={selectedBoard.id}></NewCardForm>
+            <div className='card-form-area'>
+              <NewCardForm onCardAdd={addCard} boardId={selectedBoard.id}></NewCardForm>
+            </div>
           </section>
         )}
       </main>

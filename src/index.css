@@ -8,7 +8,7 @@
   background: #696c99;
   /* background: -moz-linear-gradient(left, #7C00CE 0%, #A4283D 37%, #FFCF60 100%); */
   /* background: -webkit-linear-gradient(left, #7C00CE 0%, #A4283D 37%, #FFCF60 100%); */
-  /* background: linear-gradient(to right, #7C00CE 0%, #A4283D 37%, #FFCF60 100%); */ */
+  /* background: linear-gradient(to right, #7C00CE 0%, #A4283D 37%, #FFCF60 100%); */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -42,9 +42,9 @@ button {
   margin: 10px;
 }
 
-button:hover {
+/* button:hover {
   border-color: #FFCF60;
-}
+} */
 
 button:focus,
 button:focus-visible {

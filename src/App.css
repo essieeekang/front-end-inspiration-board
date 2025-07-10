@@ -140,4 +140,11 @@ footer {
   border-radius: 20px;
 }
 
+.sidebar button:hover {
+  border-color: #FFCF60;
+}
+
+.card-form-area button:hover {
+  border-color: #FFCF60;
+}
 
