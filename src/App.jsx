@@ -100,6 +100,7 @@ const App = () => {
     <div className='app-container'>
       <header>
         <h1><img src={sparkles}/>INSPIRATION BOARD<img src={sparklesFlipped}/></h1>
+        <h2>By JMEB</h2>
       </header>
 
       <main className='main-content'>
@@ -148,7 +149,6 @@ const App = () => {
           </section>
         )}
       </main>
-      <footer>&copy; JMEB</footer>
     </div>
   );
 };
