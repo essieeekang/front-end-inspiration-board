@@ -5,10 +5,10 @@
 
   color-scheme: light dark;
   color: black;
-  background: #7C00CE;
-  background: -moz-linear-gradient(left, #7C00CE 0%, #A4283D 37%, #FFCF60 100%);
-  background: -webkit-linear-gradient(left, #7C00CE 0%, #A4283D 37%, #FFCF60 100%);
-  background: linear-gradient(to right, #7C00CE 0%, #A4283D 37%, #FFCF60 100%);
+  background: #696c99;
+  /* background: -moz-linear-gradient(left, #7C00CE 0%, #A4283D 37%, #FFCF60 100%); */
+  /* background: -webkit-linear-gradient(left, #7C00CE 0%, #A4283D 37%, #FFCF60 100%); */
+  /* background: linear-gradient(to right, #7C00CE 0%, #A4283D 37%, #FFCF60 100%); */ */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -54,7 +54,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
   }
   a:hover {
     color: #747bff;

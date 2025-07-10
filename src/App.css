@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 
 header {
-  text-align: center;
+  /* text-align: center; */
   color: rgba(255, 255, 255, 0.87);
+  font-family: "Fredoka";
+}
+
+h1 img {
+  height: 40px;
+  width: 40px;
 }
 
 .app-container {
@@ -22,6 +29,12 @@ header {
   align-items: flex-start;
 }
 
+footer {
+  font-family: "Fredoka";
+  text-align: center;
+  color: white
+}
+
 .corkboard-container {
   background-image: url('./assets/corkboard.png');  
   background-size: 100% 100%;
@@ -37,6 +50,8 @@ header {
 
 .card-area {
   flex: 1;
+  margin-left: 50px;
+  margin-right: 50px;
   /* padding: 1rem; */
 }
 
@@ -99,6 +114,7 @@ header {
   background-color: rgb(215, 216, 250);}
 
 .sidebar {
+  margin-left: 20px;
   width: 240px;
   padding: 1rem;
   background-color: rgba(250, 235, 215, 0.568);

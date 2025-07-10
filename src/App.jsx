@@ -97,7 +97,7 @@ const App = () => {
   return (
     <div className='app-container'>
       <header>
-        <h1>Inspiration Board</h1>
+        <h1><img src="src/assets/sparkles.webp"/>INSPIRATION BOARD<img src="src/assets/sparkles_flipped.png"/></h1>
       </header>
 
       <main className='main-content'>
@@ -146,6 +146,7 @@ const App = () => {
           </section>
         )}
       </main>
+      <footer>&copy; JMEB</footer>
     </div>
   );
 };

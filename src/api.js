@@ -38,9 +38,16 @@ export const getAllCardsApi = (boardId, sortParam=null) => {
     });
 };
 
-export const createNewCardApi = (newCard) => {
-  newCard = convertCamelToSnake(newCard);
-  return axios.post(`${VITE_APP_BACKEND_URL}/cards`, newCard)
+export const createNewCardApi = (formData) => {
+  const boardId = formData.get('boardId');
+  formData.delete('boardId');
+  formData.append('board_id', boardId);
+
+  return axios.post(`${VITE_APP_BACKEND_URL}/cards`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
     .then(response => {
       return response.data;
     })
@@ -66,8 +73,3 @@ export const removeCardApi = (id) => {
     });
 };
 
-const convertCamelToSnake = (card) => {
-  const {message, boardId} = card;
-  const apiCard = {message, board_id: boardId};
-  return apiCard;
-};

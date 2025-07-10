@@ -3,18 +3,34 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const NewCardForm = ({ onCardAdd, boardId }) => {
-  // const newCardData = new FormData();
-  // formData.append('boardId', boardId);
-
   const [newCardData, setNewCardData] = useState({
     message: '',
-    boardId: null,
+    image: null,
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCardAdd(newCardData);
-    setNewCardData({ message: '', boardId: null});
+
+    const cardFormData = new FormData();
+    cardFormData.append('message', newCardData.message);
+    cardFormData.append('boardId', boardId);
+
+    if (newCardData.image) {
+      cardFormData.append('image', newCardData.image);
+    }
+
+    onCardAdd(cardFormData);
+    setNewCardData({ message: '', image: null});
+
+    e.target.reset();
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setNewCardData(prev => ({
+      ...prev,
+      image: file
+    }));
   };
 
   return (
@@ -25,13 +41,17 @@ const NewCardForm = ({ onCardAdd, boardId }) => {
         value={newCardData.message}
         maxLength='40'
         required
-        onChange={(e) => setNewCardData({boardId: boardId, message: e.target.value})}
+        onChange={(e) => setNewCardData(prev => ({
+          ...prev,
+          message: e.target.value
+        }))}
       />
       <input
         type='file'
         accept='image/*'
-        value={newCardData.image}
+        onChange={handleFileChange}
       />
+      <br></br>
       <button type="submit">Add Card</button>
     </form>
   );

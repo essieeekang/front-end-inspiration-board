@@ -11,6 +11,7 @@ const CardList = props => {
         message={card.message}
         likes={card.likes}
         color={card.color}
+        image={card.image}
         onLikeCard = {props.onLikeCard}
         onDeleteCard = {props.onDeleteCard}
       />
@@ -25,6 +26,8 @@ CardList.propTypes = {
       id: PropTypes.number.isRequired,
       message: PropTypes.string.isRequired,
       likes: PropTypes.number.isRequired,
+      color: PropTypes.string.isRequired,
+      image: PropTypes.string
     })
   ).isRequired,
   onLikeCard: PropTypes.func.isRequired,
